@@ -66,14 +66,14 @@ async function antiAdBlock(){
 					if(element == null){
 						
 					} else {
-						if(element.innerText.indexOf("Ad blocker")){
+						if(element.innerText.indexOf("Ad blocker") >= 0){
 							break;
 						}
 					}
 					await (
 						new Promise(
-							function(resolve, reject){
-								setTimeout(resolve, 10);
+							function(innerResolve, innerReject){
+								setTimeout(innerResolve, 10);
 							}
 						)
 					)
@@ -89,12 +89,14 @@ async function antiAdBlock(){
 	
 	let errorScreen = document.querySelector("#error-screen");
 	if(errorScreen == null){
+		console.log("[iframe ad block] Error message not found");
 		return;
 	}
 	let errorText = errorScreen.innerText;
 	if(errorText.indexOf("Ad blocker") >= 0){
 		// Adblock error message, so continue
 	} else {
+		console.log("[iframe ad block] Error not found");
 		return;
 	}
 	
@@ -159,6 +161,11 @@ async function antiAdBlock(){
 			display: none !important;
 		}
 		
+		#player-container-inner {
+			top: 50% !important;
+			left:50% !important;
+			transform: translate(-50%, -50%) !important;
+		}
 	`;
 	
 	let mainCSSBlock = document.createElement("style");
