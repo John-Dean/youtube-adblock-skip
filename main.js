@@ -52,6 +52,40 @@ async function antiAdBlock(){
 		)
 	)
 	
+	await (
+		new Promise(
+			async function(resolve, reject){
+				let element;
+				let didTimeout = false;
+				setTimeout(function(){
+					didTimeout = true;
+					resolve();
+				}, 6000)
+				while(true){
+					element = document.querySelector("#error-screen");
+					if(element == null){
+						
+					} else {
+						if(element.innerText.indexOf("Ad blocker")){
+							break;
+						}
+					}
+					await (
+						new Promise(
+							function(resolve, reject){
+								setTimeout(resolve, 10);
+							}
+						)
+					)
+					if(didTimeout){
+						break;
+					}
+				}
+				return resolve(element);
+			}
+		)
+	)
+	
 	
 	let errorScreen = document.querySelector("#error-screen");
 	if(errorScreen == null){
