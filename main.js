@@ -164,9 +164,9 @@ async function antiAdBlock(){
 		)
 	)
 	
-	
+	let current_href = iframe.contentWindow.location.href;
 	while(true){
-		if(iframe.contentWindow.location.href != location.href){
+		if(iframe.contentWindow.location.href != current_href){
 			location.href = iframe.contentWindow.location.href;
 			break;
 		}
