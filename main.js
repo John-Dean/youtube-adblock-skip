@@ -117,7 +117,12 @@ async function antiAdBlock(){
 		}
 
 		.ytp-chrome-bottom {
-			width: 100% !important;
+			left: 50% !important;
+			transform: translate(-50%, 0);
+		}
+		
+		[data-title-no-tooltip="Cinema mode"] {
+			display: none !important;
 		}
 		
 	`;
