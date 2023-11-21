@@ -34,7 +34,7 @@
 	)
 	
 	// Detection for adblock message
-	if(documentPlayer.querySelectorAll("#error-screen").length == 0){
+	if(document.querySelectorAll("#error-screen").length == 0){
 		return;
 	}
 
