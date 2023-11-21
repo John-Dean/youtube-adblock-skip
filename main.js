@@ -92,6 +92,19 @@ async function antiAdBlock(){
 			max-width: none !important;
 			min-width: none !important;
 		}
+		
+		#player:after{
+			content:"";
+			position: fixed !important;
+			top: 0;
+			left: 0;
+			z-index: 999;
+			width: 100%;
+			height: 100%;
+			max-width: none !important;
+			min-width: none !important;
+			background-color: black;
+		}
 
 		.html5-video-container {
 			width: 100%;
